@@ -2,7 +2,33 @@
 
 
 <html>
+<head>
+    <title>User Story Manager</title>
+</head>
 	<body>
+        <h1>User Story Manager</h1>
+        <form = action="" method="post">
+            <p><label>Story Title</label></p>
+                <input name="story_title" value="{{prev_data.story_title}}" required></p>
+            <p><label>UserStory</label></p>
+                <textarea rows="10" cols="60" name="user_story" required>{{prev_data.user_story}}</textarea></p>
+            <p><label>Acceptance Criteria</label></p>
+                <textarea rows="10" cols="60" name="criteria" required>{{prev_data.criteria}}</textarea></p>
+            <p><label>Business Value</label></p>
+                <input type="number" min="100" max="1500" step="100" name = "b_value" value="{{ prev_data.b_value}}" required></p>
+            <p><label>Estimated Time</label></p>
+                <input type="number" min="0" max ="40" step="0.5" name = "estimate" value={{prev_data.estimate}} required></p>
+<!-- status setter -->
+            <p><label>Status</label><p>
+                <select name="status">
+                    <option value="Planning" {{ "selected" if status in prev_data.status == "Planning" else ""}}>Planning</option>
+                    <option value="In Progress" {{ "selected" if prev_data.status == "In Progress" else ""}}>In Progress</option>
+                    <option value="To Do" {{ "selected" if prev_data.status == "To Do" else ""}}>To Do</option>
+                    <option value="Review" {{ "selected" if prev_data.status == "Review" else ""}}>Review</option>
+                    <option value="Done" {{ "selected" if prev_data.status == "Done" else ""}}>Done</option>
+                </select></p>
 
+            <p><input type="submit" value="submit"></p>
+        </form>
 	</body>
 </html

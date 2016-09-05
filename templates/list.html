@@ -2,7 +2,29 @@
 
 
 <html>
+<head>
+    <title> User Story Manager</title>
+</head>
+
 	<body>
+
+        <h1> User Story Manager - List of Stories</h1>
+            <table>
+                {% for story in userstories %}  <!-- jinja magik-->
+                <tr>
+                <td>{{story.story_title}}</td>
+                <td>{{story.user_story}}</td>
+                <td>{{story.criteria}}</td>
+                <td>{{story.b_value}}</td>
+                <td>{{story.estimation}}</td>
+                <td>{{story.status}}</td>
+                <td><a href="{{url_for('update_story', story_id=story.id)}}">Update</a></td>
+                <td><a href="{{url_for('delete_story', story_id=story.id)}}">delete</a></td>
+                </tr>
+                {% endfor %}
+            </table>
+
+            <a href="{{url_for('story_page')}}">Story Page </a>
 
 	</body>
 </html
