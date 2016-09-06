@@ -10,16 +10,26 @@
 
         <h1> User Story Manager - List of Stories</h1>
             <table border=1>
+                <tr>
+                    <th id="story">Story Title</th>
+                    <th id="user">User Story</th>
+                    <th id="crit">Acceptance Criteria</th>
+                    <th id="value">Business Value</th>
+                    <th id="estim">Estimated Time</th>
+                    <th id="status">Status</th>
+                    <th id="update">Update</th>
+                    <th id="delete">Delete</th>
+                </tr>
                 {% for story in userstories %}  <!-- jinja magik-->
                 <tr>
-                <td>{{story.story_title}}</td>
-                <td>{{story.user_story}}</td>
-                <td>{{story.criteria}}</td>
-                <td>{{story.b_value}}</td>
-                <td>{{story.estimation}}</td>
-                <td>{{story.status}}</td>
-                <td><a href="{{url_for('update_story', story_id=story.id)}}">Update</a></td>
-                <td><a href="{{url_for('delete_story', story_id=story.id)}}">Delete</a></td>
+                <td headers="story">{{story.story_title}}</td>
+                <td headers="user">{{story.user_story}}</td>
+                <td headers="crit">{{story.criteria}}</td>
+                <td headers="value">{{story.b_value}}</td>
+                <td headers="estim">{{story.estimation}}</td>
+                <td headers="status">{{story.status}}</td>
+                <td headers="update"><a href="{{url_for('update_story', story_id=story.id)}}">Update</a></td>
+                <td headers="delete"><a href="{{url_for('delete_story', story_id=story.id)}}">Delete</a></td>
                 </tr>
                 {% endfor %}
             </table>
