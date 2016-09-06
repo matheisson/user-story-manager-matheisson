@@ -9,7 +9,7 @@
 	<body>
 
         <h1> User Story Manager - List of Stories</h1>
-            <table>
+            <table border=1>
                 {% for story in userstories %}  <!-- jinja magik-->
                 <tr>
                 <td>{{story.story_title}}</td>
@@ -19,7 +19,7 @@
                 <td>{{story.estimation}}</td>
                 <td>{{story.status}}</td>
                 <td><a href="{{url_for('update_story', story_id=story.id)}}">Update</a></td>
-                <td><a href="{{url_for('delete_story', story_id=story.id)}}">delete</a></td>
+                <td><a href="{{url_for('delete_story', story_id=story.id)}}">Delete</a></td>
                 </tr>
                 {% endfor %}
             </table>
