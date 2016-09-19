@@ -4,21 +4,49 @@
 <html>
 <head>
     <title>User Story Manager</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <link href="http://bootswatch.com/cerulean/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+
 </head>
 	<body>
+    <div class="container">
+        <link rel="stylesheet" type="text/css" href="static/padding.css">
+
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <a class="header_link" href="{{url_for('story_list')}}">Story List</a>
+            </div>
+        </nav>
+        <br><br>
         <h1>User Story Manager</h1>
         <form = action="" method="post">
-            <p><label>Story Title</label></p>
-                <input name="story_title" value="{{prev_data.story_title}}" required></p>
-            <p><label>UserStory</label></p>
-                <textarea rows="10" cols="60" name="user_story" required>{{prev_data.user_story}}</textarea></p>
-            <p><label>Acceptance Criteria</label></p>
-                <textarea rows="10" cols="60" name="criteria" required>{{prev_data.criteria}}</textarea></p>
-            <p><label>Business Value</label></p>
-                <input type="number" min="100" max="1500" step="100" name = "b_value" value="{{prev_data.b_value}}" required></p>
-            <p><label>Estimated Time</label></p>
-                <input type="number" min="0" max ="40" step="0.5" name = "estimation" value="{{prev_data.estimation}}" required></p>
-
+            <div class="form-group">
+                <p><label for="stry">Story Title</label></p>
+                    <input name="story_title" value="{{prev_data.story_title}}" class="form-control" id="stry" required></p>
+            </div>
+            <div class="form-group">
+                <p><label for='ustry'>UserStory</label></p>
+                    <textarea rows="10" cols="60" name="user_story" required class="form-control" id="ustry">{{prev_data.user_story}} </textarea></p>
+            </div>
+            <div class="form-group">
+                <p><label for='appc'>Acceptance Criteria</label></p>
+                    <textarea rows="10" cols="60" name="criteria" required class="form-control" id="appc">{{prev_data.criteria}}</textarea></p>
+            </div>
+            <div class="form-group">
+                <p><label for='bv'>Business Value</label></p>
+                    <input class="form-control" id="bv" type="number" min="100" max="1500" step="100" name = "b_value" value="{{prev_data.b_value}}" required></p>
+            </div>
+            <div class="form-group">
+                <p><label for="et">Estimated Time</label></p>
+                    <input class="form-control" id="et" type="number" min="0" max ="40" step="0.5" name = "estimation" value="{{prev_data.estimation}}" required></p>
+            </div>
 <!-- status setter -->
 
             <p><label>Status</label><p>
@@ -32,5 +60,6 @@
 
             <p><input type="submit" value="{{submit}}"></p>
         </form>
+    </div>
 	</body>
 </html
